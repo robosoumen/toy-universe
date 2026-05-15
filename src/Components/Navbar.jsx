@@ -1,16 +1,19 @@
 import React from "react";
+import { FaRegUserCircle } from "react-icons/fa";
 import { NavLink } from "react-router";
+import './Navbar.css'
 
 const Navbar = () => {
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/profile'>My Profile</NavLink></li>
         <li><NavLink to='/login'>Login</NavLink></li>
         <li><NavLink to='/resister'>Resister</NavLink></li>
     </>
   return (
     <div>
       {/* navbar */}
-      <div className="navbar bg-base-100 shadow-sm">
+      <nav className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,7 +42,7 @@ const Navbar = () => {
              }
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">Toy Universe</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -49,9 +52,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <a className="mr-7"><FaRegUserCircle size={25}></FaRegUserCircle></a>
         </div>
-      </div>
+      </nav>
     </div>
   );
 };
