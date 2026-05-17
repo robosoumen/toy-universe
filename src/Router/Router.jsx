@@ -33,7 +33,8 @@ const router = createBrowserRouter([
   },
   {
     path: '/card-details/:id',
-    element:<CardDetails></CardDetails>
+    element:<CardDetails></CardDetails>,
+    loader: () => fetch('/toy.json'),
   },
   {
     path: "*",

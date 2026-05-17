@@ -29,7 +29,7 @@ const PopularToys = ({ singleToyData }) => {
            {description}
           </p>
           <div className="card-actions justify-end">
-            <Link className="btn btn-primary">Show Details</Link>
+            <Link to={`/card-details/${toyId}`} className="btn btn-primary">Show Details</Link>
           </div>
         </div>
       </div>
