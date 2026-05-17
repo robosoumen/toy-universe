@@ -1,12 +1,28 @@
-import React from "react";
+import React, { use } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import { NavLink } from "react-router";
 import './Navbar.css'
+import { Link } from "react-router";
+import { useNavigate } from "react-router";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
+  const {logOut,user} = use(AuthContext);
+
+  const handleLogOut = () => {
+    logOut().then(() => {
+      alert('logOut Successful')
+    }).then(error => {
+      console.log(error)
+    })
+  }
+
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/profile'>My Profile</NavLink></li>
+        <li><NavLink to='/about'>About</NavLink></li>
+        {
+          user && <li><NavLink to='/profile'>Profile</NavLink></li>
+        }
     </>
   return (
     <div>
@@ -50,7 +66,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="mr-7"><FaRegUserCircle size={25}></FaRegUserCircle></a>
+          
+          {
+            user ? <img title={user.displayName} className="" src={user.photoURL} alt="" /> : <a className="mr-7"><FaRegUserCircle size={25}></FaRegUserCircle></a>
+          }
+          {
+            user ? <button onClick={handleLogOut}>LogOut</button> :  <Link to='/auth/login'>Log In</Link>
+          }
+         
         </div>
       </nav>
     </div>

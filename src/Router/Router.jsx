@@ -5,6 +5,8 @@ import Login from "../Pages/Login";
 import Resister from "../Pages/Resister";
 import AuthLayout from "../Layout/AuthLayout";
 import CardDetails from "../Pages/CardDetails";
+import PrivateRoute from "../Components/PrivateRoute";
+import Profile from "../Pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -33,8 +35,16 @@ const router = createBrowserRouter([
   },
   {
     path: '/card-details/:id',
-    element:<CardDetails></CardDetails>,
+    element:<PrivateRoute>
+      <CardDetails></CardDetails>
+    </PrivateRoute>,
     loader: () => fetch('/toy.json'),
+  },
+  {
+    path:'/profile',
+    element: <PrivateRoute>
+      <Profile></Profile>
+    </PrivateRoute>
   },
   {
     path: "*",
