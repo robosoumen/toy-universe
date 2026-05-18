@@ -6,7 +6,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router";
 import { useRef } from "react";
-import { toast } from "@contentstack/react-toastify";
+import { IoMdEye } from "react-icons/io";
+import { FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -42,7 +44,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         alert("LogIn Successful");
-        toast('Login Successful')
+        toast("Login Successful");
         navigate(location.state || "/");
       })
       .catch((error) => {
@@ -104,7 +106,11 @@ const Login = () => {
                       className="absolute top-3 lg:right-8 right-5"
                       onClick={handleShowPassword}
                     >
-                      eye
+                      {showPassword ? (
+                        <IoMdEye></IoMdEye>
+                      ) : (
+                        <FaEyeSlash></FaEyeSlash>
+                      )}
                     </button>
                   </div>
                   <div>

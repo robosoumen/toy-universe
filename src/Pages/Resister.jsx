@@ -56,7 +56,8 @@ const Resister = () => {
           setUser(rUser);
         })
           alert("SignUp Complete");
-          toast('Account create Successful')
+          toast('Account create Successful');
+          toast('account crete successful')
           navigate("/");
       })
       .catch((error) => {

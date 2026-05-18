@@ -8,6 +8,7 @@ import CardDetails from "../Pages/CardDetails";
 import PrivateRoute from "../Components/PrivateRoute";
 import Profile from "../Pages/Profile";
 import About from "../Pages/About";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About></About>,
+        element: <PrivateRoute>
+          <About></About>
+        </PrivateRoute>,
       },
       {
         path: "/profile",
@@ -60,7 +63,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <div>404 error</div>,
+    element: <ErrorPage></ErrorPage>
   },
 ]);
 
