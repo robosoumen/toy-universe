@@ -23,12 +23,12 @@ const Login = () => {
     e.preventDefault();
     googleSignIn()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         setUser(result.user);
         navigate(location.state || "/");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -38,17 +38,17 @@ const Login = () => {
     const form = e.target;
     const password = form.password.value;
     const email = form.email.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     signIn(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         alert("LogIn Successful");
         toast("Login Successful");
         navigate(location.state || "/");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setErrorM(error.code);
       });
   };
@@ -61,17 +61,18 @@ const Login = () => {
   // forget password
   const handleForgetPassword = () => {
     const passEmail = emailRef.current.value;
-    console.log("clicked", passEmail);
+    // console.log("clicked", passEmail);
     forgotPassword(passEmail)
       .then(() => {
         alert("please check Your Email");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
   return (
     <div>
+       <title>toy-universe-login</title>
       {/* form */}
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">

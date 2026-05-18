@@ -18,12 +18,12 @@ const Resister = () => {
     e.preventDefault();
     googleSignIn()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         setUser(result.user);
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -34,12 +34,12 @@ const Resister = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const photo = e.target.photo.value;
-    console.log("resister Clicked", name, email, password, photo);
+    // console.log("resister Clicked", name, email, password, photo);
 
     // regEx Password validation
     const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordValidation.test(password)) {
-      console.log("password should be more ");
+      // console.log("password should be more ");
       setErrorC(
         '"Password must be at least 6 characters long and include both uppercase and lowercase letters."',
       );
@@ -52,7 +52,7 @@ const Resister = () => {
         updateUser({ displayName: name, photoURL: photo }).then(() => {
           setUser({...rUser, displayName: name, photoURL: photo });
         }).catch(error => {
-          console.log(error);
+          // console.log(error);
           setUser(rUser);
         })
           alert("SignUp Complete");
@@ -61,7 +61,7 @@ const Resister = () => {
           navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setErrorC(error.message);
       });
   };
@@ -74,6 +74,7 @@ const Resister = () => {
 
   return (
     <div>
+       <title>toy-universe-resister</title>
       {/* resister */}
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">

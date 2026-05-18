@@ -13,7 +13,7 @@ const Navbar = () => {
     logOut().then(() => {
       alert('logOut Successful')
     }).then(error => {
-      console.log(error)
+      // console.log(error)
     })
   }
 
@@ -68,7 +68,7 @@ const Navbar = () => {
         <div className="navbar-end mr-5">
           
           {
-            user ? <img title={user.displayName} className="w-[50px] p-2" src={user.photoURL} alt="" /> : <a className="mr-7"><FaRegUserCircle size={25}></FaRegUserCircle></a>
+            user ? <img title={user.displayName} className="w-[50px] p-2 rounded-full" src={user.photoURL} alt="" /> : <a className="mr-7"><FaRegUserCircle size={25}></FaRegUserCircle></a>
           }
          <div className="hover:text-red-600 font-bold">
            {

@@ -19,7 +19,7 @@ const PopularToys = ({ singleToyData }) => {
       <div className="card w-96 shadow-sm p-4 bg-amber-200">
         <figure>
           <img
-            className="w-[300px] h-[300px] p-5 rounded-4xl"
+            className="w-[300px] h-[200px] p-5 rounded-4xl"
             src={pictureURL}
             alt="Shoes"
           />

@@ -4,9 +4,10 @@ import PopularToys from "../Components/PopularToys";
 const toyPromises = fetch("/toy.json").then((res) => res.json());
 const Home = () => {
   const toyData = use(toyPromises);
-  console.log(toyData);
+  // console.log(toyData);
   return (
     <div className="w-11/12 mx-auto items-center space-y-8">
+      <title>toy-universe-home</title>
       <div className="p-7">
         <Slider toyData={toyData}></Slider>
       </div>

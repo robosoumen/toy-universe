@@ -238,5 +238,17 @@
     "description": "Large indoor/outdoor bounce house for active birthday parties.",
     "pictureURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpHjm87jRdmY9sZwG8FJ4OCZvxJ_Via9RHdw&s",
     "subCategory": "Outdoor Games"
+  },
+  {
+    "toyId": 21,
+    "toyName": "Transformer Robot",
+    "sellerName": "Mecha World",
+    "sellerEmail": "sales@mechaworld.com",
+    "price": 21.99,
+    "rating": 4.4,
+    "availableQuantity": 55,
+    "description": "2-in-1 action figure that transforms from a powerful robot to a jet.",
+    "pictureURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfxkCEzNR3A6vRVnpmH9Y5qvHL4b0NUnFf8Q&s",
+    "subCategory": "Action Figures"
   }
 ]

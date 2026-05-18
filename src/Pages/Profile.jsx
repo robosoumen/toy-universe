@@ -8,11 +8,12 @@ const Profile = () => {
     const {photoURL, displayName, email} = user
     return (
        <section className='flex flex-col justify-center items-center mx-auto'>
+        <title>toy-universe-profile</title>
         <div>
             <p className='text-3xl font-bold'>USER INFORMATION</p>
         </div>
          <div>
-           <img className='w-[300px] h-[200px]' src={photoURL} alt="" />
+           <img className='w-[300px] h-[200px] rounded-3xl' src={photoURL} alt="" />
         </div>
         <div>
             <p className='text-2xl font-semibold text-red-500'>User Name : {displayName}</p>

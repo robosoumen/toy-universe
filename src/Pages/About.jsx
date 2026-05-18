@@ -5,7 +5,9 @@ const About = () => {
   const { user } = use(AuthContext);
 
   return (
-    <div className="flex flex-col gap-6">
+   <div>
+    <title>toy-universe-about</title>
+     <div className="flex flex-col gap-6 w-11/12 mx-auto">
         <div>
             <p className="text-2xl font-semibold flex justify-center">Welcome {user.displayName}</p>
         </div>
@@ -25,6 +27,7 @@ const About = () => {
         <p>"Our journey is driven by the smiles of children and the trust of parents. As we grow, our goal remains the same: to create a vibrant, safe, and playful digital space where discovering the perfect gift is as fun as playing with it. Whether you are looking to build a Lego empire or find a cuddly new friend, ToyTopia is here to make those moments memorable."</p>
       </div>
     </div>
+   </div>
   );
 };
 

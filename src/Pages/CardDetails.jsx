@@ -9,7 +9,7 @@ const CardDetails = () => {
   const toyId = parseInt(id);
   const data = useLoaderData();
   const filterToy = data.find((singleToy) => singleToy.toyId === toyId);
-  console.log(typeof toyId, data, filterToy);
+  // console.log(typeof toyId, data, filterToy);
 
   const {
     availableQuantity,
@@ -28,11 +28,13 @@ const CardDetails = () => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
-    console.log(name, email);
+    // console.log(name, email);
     alert("form submit successful");
+    e.target.reset();
   };
   return (
     <div className="bg-yellow-300 space-y-5">
+      <title>{toyName}</title>
       <header>
         <Navbar></Navbar>
       </header>
