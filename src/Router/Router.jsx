@@ -7,6 +7,7 @@ import AuthLayout from "../Layout/AuthLayout";
 import CardDetails from "../Pages/CardDetails";
 import PrivateRoute from "../Components/PrivateRoute";
 import Profile from "../Pages/Profile";
+import About from "../Pages/About";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,16 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: '/profile',
+        element:<PrivateRoute>
+          <Profile></Profile>
+        </PrivateRoute>
       },
     ],
   },
@@ -34,18 +45,20 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: '/card-details/:id',
-    element:<PrivateRoute>
-      <CardDetails></CardDetails>
-    </PrivateRoute>,
-    loader: () => fetch('/toy.json'),
+    path: "/card-details/:id",
+    element: (
+      <PrivateRoute>
+        <CardDetails></CardDetails>
+      </PrivateRoute>
+    ),
+    loader: () => fetch("/toy.json"),
   },
-  {
-    path:'/profile',
-    element: <PrivateRoute>
-      <Profile></Profile>
-    </PrivateRoute>
-  },
+  // {
+  //   path:'/profile',
+  //   element: <PrivateRoute>
+  //     <Profile></Profile>
+  //   </PrivateRoute>
+  // },
   {
     path: "*",
     element: <div>404 error</div>,

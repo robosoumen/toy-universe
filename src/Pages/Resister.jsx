@@ -5,6 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { FaEyeSlash } from "react-icons/fa";
+import { toast } from "@contentstack/react-toastify";
 
 const Resister = () => {
   const navigate = useNavigate();
@@ -55,6 +56,7 @@ const Resister = () => {
           setUser(rUser);
         })
           alert("SignUp Complete");
+          toast('Account create Successful')
           navigate("/");
       })
       .catch((error) => {

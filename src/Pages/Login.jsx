@@ -6,61 +6,68 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router";
 import { useRef } from "react";
+import { toast } from "@contentstack/react-toastify";
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState(false)
-  const [errorM, setErrorM] = useState('');
-  const {signIn, googleSignIn,setUser,forgotPassword} = use(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [errorM, setErrorM] = useState("");
+  const { signIn, googleSignIn, setUser, forgotPassword } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const emailRef = useRef()
+  const emailRef = useRef();
 
   //signIn With Google
   const handleGoogleSignIn = (e) => {
     e.preventDefault();
-    googleSignIn().then(result => {
-      console.log(result.user)
-      setUser(result.user);
-      navigate(location.state || '/')
-    }).catch(error => {
-      console.log(error)
-    })
-  }
-
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+        setUser(result.user);
+        navigate(location.state || "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   // Log In Form
-    const handleLogInForm = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const password = form.password.value;
-        const email = form.email.value;
-        console.log(email,password);
+  const handleLogInForm = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const password = form.password.value;
+    const email = form.email.value;
+    console.log(email, password);
 
-        signIn(email,password).then(result => {
-          console.log(result.user);
-          alert('LogIn Successful');
-           navigate(location.state || '/');
-        }).catch(error => {
-          console.log(error);
-          setErrorM(error.code)
-        })
-    }
-    // handleShowPassword
-    const handleShowPassword = (e) => {
-      e.preventDefault();
-      setShowPassword(!showPassword)
-    }
-
-    // forget password
-    const handleForgetPassword = () => {
-      const passEmail = emailRef.current.value;
-      console.log('clicked',passEmail);
-      forgotPassword(passEmail).then(()=> {
-        alert('please check Your Email')
-      }).catch(error => {
-        console.log(error)
+    signIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        alert("LogIn Successful");
+        toast('Login Successful')
+        navigate(location.state || "/");
       })
-    }
+      .catch((error) => {
+        console.log(error);
+        setErrorM(error.code);
+      });
+  };
+  // handleShowPassword
+  const handleShowPassword = (e) => {
+    e.preventDefault();
+    setShowPassword(!showPassword);
+  };
+
+  // forget password
+  const handleForgetPassword = () => {
+    const passEmail = emailRef.current.value;
+    console.log("clicked", passEmail);
+    forgotPassword(passEmail)
+      .then(() => {
+        alert("please check Your Email");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       {/* form */}
@@ -73,27 +80,47 @@ const Login = () => {
             <div className="card-body">
               <form onSubmit={handleLogInForm}>
                 <fieldset className="fieldset">
-                    {/* email */}
+                  {/* email */}
                   <label className="label">Email</label>
-                  <input type="email" ref={emailRef} name="email" required className="input" placeholder="Email" />
+                  <input
+                    type="email"
+                    ref={emailRef}
+                    name="email"
+                    required
+                    className="input"
+                    placeholder="Email"
+                  />
                   {/* password */}
                   <label className="label">Password</label>
                   <div className="relative">
                     <input
-                    type={showPassword ? 'text' : 'password'}
-                    name="password"
-                    required
-                    className="input"
-                    placeholder="Password"
-                  />
-                  <button className="absolute top-3 lg:right-8 right-5" onClick={handleShowPassword}>eye</button>
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      required
+                      className="input"
+                      placeholder="Password"
+                    />
+                    <button
+                      className="absolute top-3 lg:right-8 right-5"
+                      onClick={handleShowPassword}
+                    >
+                      eye
+                    </button>
                   </div>
                   <div>
-                    <a onClick={handleForgetPassword} className="link link-hover">Forgot password?</a>
+                    <a
+                      onClick={handleForgetPassword}
+                      className="link link-hover"
+                    >
+                      Forgot password?
+                    </a>
                   </div>
                   <button className="btn btn-neutral mt-4">Login</button>
-                     {/* Google */}
-                  <button onClick={handleGoogleSignIn} className="btn bg-blue-300 text-black border-[#e5e5e5]">
+                  {/* Google */}
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className="btn bg-blue-300 text-black border-[#e5e5e5]"
+                  >
                     <svg
                       aria-label="Google logo"
                       width="16"
@@ -123,10 +150,16 @@ const Login = () => {
                     </svg>
                     Login with Google
                   </button>
-                  {
-                    errorM && <p className="text-red-700">{errorM}</p>
-                  }
-                  <p>Don't Have account? Please <Link className='text-blue-400 hover:text-blue-800' to='/auth/resister'>Resister</Link></p>
+                  {errorM && <p className="text-red-700">{errorM}</p>}
+                  <p>
+                    Don't Have account? Please{" "}
+                    <Link
+                      className="text-blue-400 hover:text-blue-800"
+                      to="/auth/resister"
+                    >
+                      Resister
+                    </Link>
+                  </p>
                 </fieldset>
               </form>
             </div>

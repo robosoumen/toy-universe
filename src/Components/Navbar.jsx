@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <div>
       {/* navbar */}
-      <nav className="navbar bg-base-100 shadow-sm">
+      <nav className="navbar  bg-amber-200 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -56,23 +56,25 @@ const Navbar = () => {
              }
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Toy Universe</a>
+          <Link to='/' className="font-bold ml-4 lg:text-4xl text-2xl hover:text-amber-700">Toy Universe</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 text-xl font-semibold">
            {
             links
            }
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end mr-5">
           
           {
-            user ? <img title={user.displayName} className="" src={user.photoURL} alt="" /> : <a className="mr-7"><FaRegUserCircle size={25}></FaRegUserCircle></a>
+            user ? <img title={user.displayName} className="w-[50px] p-2" src={user.photoURL} alt="" /> : <a className="mr-7"><FaRegUserCircle size={25}></FaRegUserCircle></a>
           }
-          {
+         <div className="hover:text-red-600 font-bold">
+           {
             user ? <button onClick={handleLogOut}>LogOut</button> :  <Link to='/auth/login'>Log In</Link>
           }
+         </div>
          
         </div>
       </nav>

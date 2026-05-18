@@ -10,7 +10,7 @@ import "swiper/css/scrollbar";
 
 const Slider = ({ toyData }) => {
   return (
-    <div>
+    <div className="">
       <Swiper
         // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -23,8 +23,8 @@ const Slider = ({ toyData }) => {
         onSlideChange={() => console.log("slide change")}
       >
         {toyData.map((toyImage) => (
-          <SwiperSlide toyImage={toyImage}>
-            <img src={toyImage.pictureURL} alt="" />
+          <SwiperSlide className="" toyImage={toyImage}>
+            <img className="w-[300px] h-[200px] rounded-full" src={toyImage.pictureURL} alt="" />
           </SwiperSlide>
         ))}
       </Swiper>
