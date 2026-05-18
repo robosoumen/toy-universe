@@ -23,10 +23,12 @@ const router = createBrowserRouter([
         element: <About></About>,
       },
       {
-        path: '/profile',
-        element:<PrivateRoute>
-          <Profile></Profile>
-        </PrivateRoute>
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -52,13 +54,10 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     loader: () => fetch("/toy.json"),
+    hydrateFallbackElement: (
+      <span className="loading loading-bars loading-xl"></span>
+    ),
   },
-  // {
-  //   path:'/profile',
-  //   element: <PrivateRoute>
-  //     <Profile></Profile>
-  //   </PrivateRoute>
-  // },
   {
     path: "*",
     element: <div>404 error</div>,
