@@ -10,6 +10,7 @@ const Home = () => {
       <div className="p-7">
         <Slider toyData={toyData}></Slider>
       </div>
+       <p className="flex text-4xl font-extrabold text-green-800 items-center justify-center">All Toys</p>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {toyData.map((singleToyData) => (
           <PopularToys

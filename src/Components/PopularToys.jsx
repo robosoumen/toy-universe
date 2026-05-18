@@ -16,7 +16,7 @@ const PopularToys = ({ singleToyData }) => {
   } = singleToyData;
   return (
     <div>
-      <div className="card w-96 shadow-sm p-4 bg-amber-300">
+      <div className="card w-96 shadow-sm p-4 bg-amber-200">
         <figure>
           <img
             className="w-[300px] h-[300px] p-5 rounded-4xl"
@@ -30,7 +30,7 @@ const PopularToys = ({ singleToyData }) => {
           <p>Available Quantity : {availableQuantity}</p>
           <p>Price : {price}</p>
           <div className="card-actions justify-end">
-            <Link to={`/card-details/${toyId}`} className="btn btn-primary">
+            <Link to={`/card-details/${toyId}`} className="btn btn-warning text-red-900 text-xl font-bold">
               Show Details
             </Link>
           </div>

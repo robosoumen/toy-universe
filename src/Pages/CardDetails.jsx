@@ -23,29 +23,28 @@ const CardDetails = () => {
     description,
   } = filterToy;
   return (
-    <div>
-        <header>
-            <Navbar></Navbar>
-        </header>
-        {/* card */}
-      <div className="card bg-base-100 w-96 shadow-sm">
-        <figure>
-          <img src={pictureURL} alt="Shoes" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">
-            {toyName}
-            <div className="badge badge-secondary">{price}</div>
-          </h2>
-          <p>
-           {
-            description
-           }
-          </p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">{sellerName}</div>
-            <div className="badge badge-outline">{subCategory}</div>
-          </div>
+    <div className="bg-yellow-300 space-y-5">
+      <header>
+        <Navbar></Navbar>
+      </header>
+      {/* card */}
+      <div className="flex space-y-5 flex-col items-center">
+        <div className="space-y-2">
+          <img className="rounded-4xl" src={pictureURL} alt="" />
+          <p className="flex justify-center text-3xl font-bold">{toyName}</p>
+        </div>
+        <div className="flex justify-between text-xl gap-15 font-semibold">
+          <p className="bg-red-500 p-3 rounded-2xl text-white">Available Quantity : {availableQuantity}</p>
+          <p className="bg-red-500 p-3 rounded-2xl text-white">Price : {price}</p>
+          <p className="bg-red-500 p-3 rounded-2xl text-white">Ratings : {rating}</p>
+        </div>
+        <div className="flex gap-16 text-xl font-semibold">
+          <p className="bg-red-500 p-3 rounded-2xl text-white">Description : {description}</p>
+          <p className="bg-red-500 p-3 rounded-2xl text-white">Category : {subCategory}</p>
+        </div>
+        <div className="flex gap-12 text-xl font-semibold">
+          <p className="bg-red-500 p-3 rounded-2xl text-white">Seller Email : {sellerEmail}</p>
+          <p className="bg-red-500 p-3 rounded-2xl text-white">Seller Name : {sellerName}</p>
         </div>
       </div>
       <footer>
