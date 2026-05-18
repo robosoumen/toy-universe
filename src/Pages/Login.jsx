@@ -5,13 +5,15 @@ import { AuthContext } from "../context/AuthContext";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router";
+import { useRef } from "react";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [errorM, setErrorM] = useState('');
-  const {signIn, googleSignIn,setUser} = use(AuthContext);
+  const {signIn, googleSignIn,setUser,forgotPassword} = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const emailRef = useRef()
 
   //signIn With Google
   const handleGoogleSignIn = (e) => {
@@ -48,6 +50,17 @@ const Login = () => {
       e.preventDefault();
       setShowPassword(!showPassword)
     }
+
+    // forget password
+    const handleForgetPassword = () => {
+      const passEmail = emailRef.current.value;
+      console.log('clicked',passEmail);
+      forgotPassword(passEmail).then(()=> {
+        alert('please check Your Email')
+      }).catch(error => {
+        console.log(error)
+      })
+    }
   return (
     <div>
       {/* form */}
@@ -62,7 +75,7 @@ const Login = () => {
                 <fieldset className="fieldset">
                     {/* email */}
                   <label className="label">Email</label>
-                  <input type="email" name="email" required className="input" placeholder="Email" />
+                  <input type="email" ref={emailRef} name="email" required className="input" placeholder="Email" />
                   {/* password */}
                   <label className="label">Password</label>
                   <div className="relative">
@@ -76,7 +89,7 @@ const Login = () => {
                   <button className="absolute top-3 lg:right-8 right-5" onClick={handleShowPassword}>eye</button>
                   </div>
                   <div>
-                    <a className="link link-hover">Forgot password?</a>
+                    <a onClick={handleForgetPassword} className="link link-hover">Forgot password?</a>
                   </div>
                   <button className="btn btn-neutral mt-4">Login</button>
                      {/* Google */}
